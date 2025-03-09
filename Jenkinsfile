@@ -26,12 +26,6 @@ pipeline {
             }
         }
 
-        stage('Upload to JFrog Artifactory') {
-            steps {
-                sh 'mvn deploy'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t hello-world-java .'
