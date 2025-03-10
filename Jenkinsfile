@@ -47,7 +47,7 @@ pipeline {
                 sh '''
                     docker stop hello-world-java || true
                     docker rm hello-world-java || true
-                    docker run -d --name hello-world-java -p 8080:8080 khalilurrahmansaeed10634/hello-world-java:latest
+                    docker run -d --name hello-world-java -p 8085:8080 khalilurrahmansaeed10634/hello-world-java:latest
                 '''
             }
         }
