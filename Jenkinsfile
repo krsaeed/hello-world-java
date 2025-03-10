@@ -35,9 +35,9 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'DOCKER_PASS')]) {
-                    sh 'echo $DOCKER_PASS | docker login -u your-docker-username --password-stdin'
-                    sh 'docker tag hello-world-java your-docker-username/hello-world-java:latest'
-                    sh 'docker push your-docker-username/hello-world-java:latest'
+                    sh 'echo "$DOCKER_PASS" | docker login -u "khalilurrahmansaeed10634" --password-stdin'
+                    sh 'docker tag hello-world-java khalilurrahmansaeed10634/hello-world-java:latest'
+                    sh 'docker push khalilurrahmansaeed10634/hello-world-java:latest'
                 }
             }
         }
@@ -47,7 +47,7 @@ pipeline {
                 sh '''
                     docker stop hello-world-java || true
                     docker rm hello-world-java || true
-                    docker run -d --name hello-world-java -p 8080:8080 your-docker-username/hello-world-java:latest
+                    docker run -d --name hello-world-java -p 8080:8080 khalilurrahmansaeed10634/hello-world-java:latest
                 '''
             }
         }
